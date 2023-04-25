@@ -1,0 +1,29 @@
+{
+  "name": "node-rpsls",
+  "version": "1.0.0",
+  "description": "a03",
+  "main": "./lib/rpsls.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2023-spring/a03-tupshinzhu.git"
+  },
+  "keywords": [
+    "a03"
+  ],
+  "author": "tupshinzhu",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/comp426-2023-spring/a03-tupshinzhu/issues"
+  },
+  "homepage": "https://github.com/comp426-2023-spring/a03-tupshinzhu#readme",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  },
+  "bin": {
+    "node-rps": "./bin/rps-cli.js",
+    "node-rpsls": "./bin/rpsls-cli.js"
+  }
+}
