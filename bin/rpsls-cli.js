@@ -17,7 +17,7 @@ Examples:
     process.exit()
 }
 
-if (args.rules || args.r) {
+if (args.r || args.rules) {
     console.log(`Rules for the Lizard-Spock Espansion of Rock Paper Scissors:
   - Scissors CUTS Paper
   - Paper COVERS Rock
