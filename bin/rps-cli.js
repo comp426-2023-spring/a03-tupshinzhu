@@ -3,7 +3,7 @@
 import { rps } from "../lib/rpsls.js"
 import minimist from "minimist"
 
-const args = minimist(process.argv)
+const args = minimist(process.argv.slice(2))
 if (args.h || args.help) {
     console.log(
 `Usage: node-rps [SHOT]
@@ -19,20 +19,22 @@ Examples:
                   e.g {"player":"rock","opponent":"scissors","result":"win"}`)
     process.exit()
 }
-
-if (args.r || args.rules) {
+else if (args.r || args.rules) {
     console.log(`Rules for Rock Paper Scissors:
-    
+
   - Scissors CUTS Paper
   - Paper COVERS Rock
   - Rock CRUSHES Scissors`)
     process.exit()
 }
+else{
+    let output = rps(args._[0])
 
-if (args._.length <= 2) {
-    console.log(JSON.stringify(rps()))
-} else if (args._.length > 3) {
-    console.error("ERROR: arguments out of range")
-} else {
-    console.log(JSON.stringify(rps(...args._.slice(2))))
+    if (output != 'error') {
+        console.log(JSON.stringify(output));
+    }
+    else {
+        console.error(`${args._[0]} is out of range.`);
 }
+}
+
