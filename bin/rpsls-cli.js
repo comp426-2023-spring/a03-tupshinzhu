@@ -17,7 +17,7 @@ Examples:
     process.exit()
 }
 
-if (args.r || args.rules) {
+else if (args.r || args.rules) {
     console.log(`Rules for the Lizard-Spock Espansion of Rock Paper Scissors:
   - Scissors CUTS Paper
   - Paper COVERS Rock
@@ -32,10 +32,35 @@ if (args.r || args.rules) {
     process.exit()
 }
 
-if (args._.length <= 2) {
-    console.log(JSON.stringify(rpsls()))
-} else if (args._.length > 3) {
-    console.error(`${args._[0]} is out of range.`)
-} else {
-    console.log(JSON.stringify(rpsls(...args._.slice(2))))
+else{
+    let output = rpsls(args._[0])
+
+    if (output != 'error') {
+        console.log(JSON.stringify(output));
+    }
+    else {
+        console.error(`${args._[0]} is out of range.`);
+        console.log(`Usage: node-rpsls [SHOT]
+        Play the Lizard-Spock Expansion of Rock Paper Scissors (RPSLS)!
+          -h, --help        display this help message and exit
+          -r, --rules       display the rules and exit
+        Examples:
+          node-rpsls        Return JSON with single player RPSLS result.
+                            e.g. {"player":"rock"}
+          node-rpsls rock   Return JSON with results for RPSLS played against a simulated opponent.
+                            e.g {"player":"rock","opponent":"Spock","result":"lose"}`)
+        
+        console.log(`Rules for the Lizard-Spock Espansion of Rock Paper Scissors:
+    - Scissors CUTS Paper
+    - Paper COVERS Rock
+    - Rock SMOOSHES Lizard
+    - Lizard POISONS Spock
+    - Spock SMASHES Scissors
+    - Scissors DECAPITATES Lizard
+    - Lizard EATS Paper
+    - Paper DISPROVES Spock
+    - Spock VAPORIZES Rock
+    - Rock CRUSHES Scissors`)                    
+            
+}
 }
